@@ -1,5 +1,6 @@
 package com.example.moviecatalog.model;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
 
@@ -12,14 +13,10 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Set;
 
+@Data
 @NoArgsConstructor
 @Entity(name = "movie")
 public class Movie extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_movie")
-    @SequenceGenerator(name = "seq_movie", sequenceName = "SEQ_MOVIE", allocationSize = 10)
-    private Long id;
 
     @NotBlank
     @Size(min = 1, max = 352)

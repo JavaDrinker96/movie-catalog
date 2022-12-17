@@ -1,7 +1,8 @@
 package com.example.moviecatalog.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -9,14 +10,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
+@Data
+@EqualsAndHashCode
 @NoArgsConstructor
 @Entity(name = "app_user")
 public class User extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
-    @SequenceGenerator(name = "seq_user", sequenceName = "SEQ_USER", allocationSize = 10)
-    private Long id;
 
     @NotBlank
     @Size(min = 3, max = 50)
