@@ -14,8 +14,7 @@ import javax.validation.constraints.Size;
 @Entity(name = "genre")
 public class Genre extends BaseEntity {
 
-    @NotBlank
-    @Size(min = 3, max = 20)
+    @NotNull
     private String name;
 
 }

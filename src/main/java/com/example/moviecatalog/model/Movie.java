@@ -2,13 +2,10 @@ package com.example.moviecatalog.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Set;
@@ -18,8 +15,7 @@ import java.util.Set;
 @Entity(name = "movie")
 public class Movie extends BaseEntity {
 
-    @NotBlank
-    @Size(min = 1, max = 352)
+    @NotNull
     private String title;
 
     private String description;
@@ -30,9 +26,10 @@ public class Movie extends BaseEntity {
     @NotNull
     private Duration duration;
 
-    @Range(min = 0, max = 100)
+    @Column(updatable = false)
     private Integer rating;
 
+    @Column(updatable = false)
     @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Set<Review> reviews;
 

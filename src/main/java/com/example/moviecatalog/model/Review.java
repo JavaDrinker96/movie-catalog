@@ -15,15 +15,13 @@ import java.time.LocalDate;
 @Entity(name = "review")
 public class Review extends BaseEntity {
 
-    @Range(min = 1, max = 100)
+    @NotNull
     private Integer score;
 
-    @NotBlank
-    @Size(min = 3, max = 352)
+    @NotNull
     private String title;
 
-    @NotBlank
-    @Size(min = 5, max = 600)
+    @NotNull
     private String content;
 
     @NotNull

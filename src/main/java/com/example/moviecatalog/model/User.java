@@ -16,22 +16,18 @@ import java.util.Set;
 @Entity(name = "app_user")
 public class User extends BaseEntity {
 
-    @NotBlank
-    @Size(min = 3, max = 50)
-    private String firstName;
-
-    @NotBlank
-    @Size(min = 3, max = 50)
-    private String lastName;
+    @NotNull
+    private String firstname;
 
     @NotNull
+    private String lastname;
+
     private LocalDate birthday;
 
-    @Email
     @NotNull
     private String email;
 
-    @NotBlank
+    @NotNull
     private String password;
 
     @NotEmpty
